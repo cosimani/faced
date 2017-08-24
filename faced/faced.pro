@@ -45,7 +45,7 @@ unix:LIBS += -lopencv_core \
 #             -lopencv_video \
 #             -lopencv_videostab \
 #             -lopencv_imgcodecs \
-             -lopencv_videoio \
+#             -lopencv_videoio \
 #             -lopencv_bgsegm
 
 unix:LIBS += "$$DIR_OTHER_LIBS/libespeak.so"

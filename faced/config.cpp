@@ -54,6 +54,7 @@ void Config::init()
             }
         }
         strings->append(kv);
+        LOG_INF(kv.at(0) << "was setted");
     }
     inputFile.close();
     LOG_INF("Config successfully initialized");

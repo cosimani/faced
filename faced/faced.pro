@@ -1,11 +1,8 @@
 QT += widgets
 
 SOURCES += \
-    main.cpp \
-    controlpanel.cpp
+    main.cpp
 
-FORMS += \
-    controlpanel.ui
+FORMS +=
 
-HEADERS += \
-    controlpanel.h
+HEADERS +=

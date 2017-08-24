@@ -1,7 +1,7 @@
 #include <QApplication>
 
-#include "config.h"
-#include "logger.h"
+#include "config/config.h"
+#include "logger/logger.h"
 
 int main(int argc, char **argv)
 {

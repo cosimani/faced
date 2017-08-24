@@ -17,7 +17,7 @@
 #include <QTextStream>
 #include <QVector>
 
-#include "logger.h"
+#include "logger/logger.h"
 
 using namespace std;
 

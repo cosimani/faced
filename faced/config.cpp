@@ -14,7 +14,6 @@ Config *Config::getInstance()
     if(!instance)
     {
         instance = new Config();
-        LOG_INF("Config: successfully initialized");
     }
     return instance;
 }
@@ -27,7 +26,8 @@ void Config::init()
     QFile inputFile(inputFilePath);
     if(inputFile.open(QIODevice::ReadOnly) == false)
     {
-        LOG_ERR("Config: file not exists");
+        LOG_ERR("Config file not exists");
+        return;
     }
     QTextStream in(&inputFile);
     while (!in.atEnd())
@@ -56,6 +56,7 @@ void Config::init()
         strings->append(kv);
     }
     inputFile.close();
+    LOG_INF("Config successfully initialized");
 }
 
 QString Config::getString(QString key)
@@ -68,7 +69,7 @@ QString Config::getString(QString key)
         }
     }
 
-    LOG_ERR("Config: string not found");
+    LOG_ERR("Config string not found");
     return "";
 }
 

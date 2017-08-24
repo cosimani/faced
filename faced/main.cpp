@@ -1,13 +1,13 @@
 #include <QApplication>
-#include "logger.h"
 
-#define LOG_DIR "../log"
+#include "config.h"
+#include "logger.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    Logger::getInstance()->setOut(LOG_DIR);
+    Config::getInstance();
 
     return app.exec();
 }

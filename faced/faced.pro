@@ -2,8 +2,7 @@ QT += widgets
 
 SOURCES += \
     main.cpp \
-    config.cpp \
-    logger.cpp
+    config.cpp
 
 HEADERS += \
     config.h \

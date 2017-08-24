@@ -1,8 +1,10 @@
 QT += widgets
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    config.cpp \
+    logger.cpp
 
-FORMS +=
-
-HEADERS +=
+HEADERS += \
+    config.h \
+    logger.h

@@ -1,13 +1,13 @@
 #include <QApplication>
 
-#include "config/config.h"
-#include "logger/logger.h"
+#include "app/app.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    Config::getInstance();
+    App faced;
+    faced.run();
 
     return app.exec();
 }

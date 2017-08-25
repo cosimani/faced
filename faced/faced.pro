@@ -1,12 +1,16 @@
 QT += widgets
 
 SOURCES += \
+    main.cpp \
     config/config.cpp \
-    main.cpp
+    app/widgets/widgets.cpp \
+    app/app.cpp
 
 HEADERS += \
+    logger/logger.h \
     config/config.h \
-    logger/logger.h
+    app/widgets/widgets.h \
+    app/app.h
 
 DISTFILES += \
     ../project.config

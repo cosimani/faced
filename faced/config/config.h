@@ -28,18 +28,19 @@ private:
 
     static Config *instance;
     static QVector<QStringList> *strings;
+
     explicit Config(QObject *parent=NULL);
     void init();
 
 public:
 
     static Config *getInstance();
+    ~Config();
 
     QString getString(QString key);
     string getStdString(QString key);
     const char *getCharString(QString key);
 
-    ~Config();
 };
 
 #endif // CONFIG_H

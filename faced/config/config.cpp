@@ -9,15 +9,6 @@ Config::Config(QObject *parent) :
     init();
 }
 
-Config *Config::getInstance()
-{
-    if(!instance)
-    {
-        instance = new Config();
-    }
-    return instance;
-}
-
 void Config::init()
 {
     QFile inputFile(CONFIG_FILE);
@@ -57,6 +48,23 @@ void Config::init()
     LOG_INF("Config successfully initialized");
 }
 
+Config *Config::getInstance()
+{
+    if(instance == NULL)
+    {
+        instance = new Config();
+    }
+    return instance;
+}
+
+Config::~Config()
+{
+    if(instance != NULL)
+    {
+        delete instance;
+    }
+}
+
 QString Config::getString(QString key)
 {
     for(int i = 0; i < strings->size(); i++)
@@ -79,9 +87,4 @@ string Config::getStdString(QString key)
 const char *Config::getCharString(QString key)
 {
     return getStdString(key).c_str();
-}
-
-Config::~Config()
-{
-    delete instance;
 }

@@ -1,10 +1,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define CONFIG_DIR "/../config/"
-#define CONFIG_FILE "project.config"
-#define CONFIG_FILE_COMMENTS "//"
-#define CONFIG_FILE_ASSIGNMENT "="
+#define CONFIG_FILE "../project.config"
+#define CONFIG_COMMENT "*"
+#define CONFIG_ASSIGNMENT "="
 
 #include <QObject>
 #include <QCoreApplication>

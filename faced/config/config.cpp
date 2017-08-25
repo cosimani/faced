@@ -20,10 +20,7 @@ Config *Config::getInstance()
 
 void Config::init()
 {
-    QString currentPath = QDir::currentPath();
-    QString inputFilePath = currentPath + CONFIG_DIR + CONFIG_FILE;
-
-    QFile inputFile(inputFilePath);
+    QFile inputFile(CONFIG_FILE);
     if(inputFile.open(QIODevice::ReadOnly) == false)
     {
         LOG_ERR("Config file not exists");
@@ -34,17 +31,17 @@ void Config::init()
     {
         QString line = in.readLine();
 
-        if(line.contains(CONFIG_FILE_COMMENTS))
+        if(line.contains(CONFIG_COMMENT))
         {
-            line = line.remove(line.indexOf(CONFIG_FILE_COMMENTS),
-                               line.length() - line.indexOf(CONFIG_FILE_COMMENTS));
+            line = line.remove(line.indexOf(CONFIG_COMMENT),
+                               line.length() - line.indexOf(CONFIG_COMMENT));
         }
 
         if(line.simplified().isEmpty()) {
             continue;
         }
 
-        QStringList kv = line.split(CONFIG_FILE_ASSIGNMENT);
+        QStringList kv = line.split(CONFIG_ASSIGNMENT);
 
         if(kv.size() == 2)
         {

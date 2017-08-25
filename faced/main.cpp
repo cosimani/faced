@@ -6,8 +6,7 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    App faced;
-    faced.run();
+    App::getInstance()->run();
 
     return app.exec();
 }

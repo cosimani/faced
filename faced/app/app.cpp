@@ -29,3 +29,8 @@ App::~App()
         delete instance;
     }
 }
+
+void App::run()
+{
+
+}

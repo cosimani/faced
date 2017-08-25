@@ -40,7 +40,7 @@ public:
     QString getString(QString key);
     string getStdString(QString key);
     const char *getCharString(QString key);
-
+    int getInt(QString key);
 };
 
 #endif // CONFIG_H

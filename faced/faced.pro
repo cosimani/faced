@@ -1,5 +1,11 @@
 QT += widgets
 
+LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_core.so"
+LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_video.so"
+LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_highgui.so"
+LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so"
+LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so"
+
 SOURCES += \
     main.cpp \
     config/config.cpp \

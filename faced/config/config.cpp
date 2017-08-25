@@ -42,7 +42,7 @@ void Config::init()
             }
         }
         strings->append(kv);
-        LOG_INF(kv.at(0) << "was setted");
+        LOG_INF("Key" << kv.at(0) << "was setted");
     }
     inputFile.close();
     LOG_INF("Config successfully initialized");
@@ -87,4 +87,9 @@ string Config::getStdString(QString key)
 const char *Config::getCharString(QString key)
 {
     return getStdString(key).c_str();
+}
+
+int Config::getInt(QString key)
+{
+    return getString(key).toInt();
 }

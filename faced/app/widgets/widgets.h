@@ -5,6 +5,10 @@
 
 #include "logger/logger.h"
 
+/**
+ * @brief The Widgets class
+ * This class allows you to manage the order and sequence of app widgets
+ */
 class Widgets : public QObject
 {
     Q_OBJECT

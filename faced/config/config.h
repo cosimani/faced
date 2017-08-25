@@ -20,6 +20,10 @@
 
 using namespace std;
 
+/**
+ * @brief The Config class
+ * This class allows you to set configuration externally to the source code
+ */
 class Config : public QObject
 {
     Q_OBJECT
@@ -41,6 +45,9 @@ public:
     string getStdString(QString key);
     const char *getCharString(QString key);
     int getInt(QString key);
+    float getFloat(QString key);
+    double getDouble(QString key);
+    bool getBool(QString key);
 };
 
 #endif // CONFIG_H

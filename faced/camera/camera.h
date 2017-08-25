@@ -15,6 +15,10 @@
 using namespace cv;
 using namespace std;
 
+/**
+ * @brief The Camera class
+ * This class allows you to manage the camera events and processing
+ */
 class Camera : public QObject
 {
     Q_OBJECT

@@ -3,12 +3,24 @@
 Config* Config::instance = NULL;
 QVector<QStringList>* Config::strings = new QVector<QStringList>();
 
+/**
+ * @brief Config::Config
+ * @param parent
+ * Constructor
+ */
 Config::Config(QObject *parent) :
     QObject(parent)
 {
     init();
 }
 
+/**
+ * @brief Config::init
+ * This method read the config file and assign to QStringList
+ * the set of (key, value) required
+ * This values are always QString, but it can take other types
+ * if you get this through next methods
+ */
 void Config::init()
 {
     QFile inputFile(CONFIG_FILE);
@@ -45,9 +57,14 @@ void Config::init()
         LOG_INF("Key" << kv.at(0) << "was setted");
     }
     inputFile.close();
+
     LOG_INF("Config successfully initialized");
 }
 
+/**
+ * @brief Config::getInstance
+ * @return the instance
+ */
 Config *Config::getInstance()
 {
     if(instance == NULL)
@@ -57,6 +74,10 @@ Config *Config::getInstance()
     return instance;
 }
 
+/**
+ * @brief Config::~Config
+ * Destructor
+ */
 Config::~Config()
 {
     if(instance != NULL)
@@ -65,6 +86,11 @@ Config::~Config()
     }
 }
 
+/**
+ * @brief Config::getString
+ * @param key
+ * @return general value
+ */
 QString Config::getString(QString key)
 {
     for(int i = 0; i < strings->size(); i++)
@@ -79,17 +105,62 @@ QString Config::getString(QString key)
     return "";
 }
 
+/**
+ * @brief Config::getStdString
+ * @param key
+ * @return string value
+ */
 string Config::getStdString(QString key)
 {
     return getString(key).toStdString();
 }
 
+/**
+ * @brief Config::getCharString
+ * @param key
+ * @return const char * value
+ */
 const char *Config::getCharString(QString key)
 {
     return getStdString(key).c_str();
 }
 
+/**
+ * @brief Config::getInt
+ * @param key
+ * @return int value
+ */
 int Config::getInt(QString key)
 {
     return getString(key).toInt();
+}
+
+/**
+ * @brief Config::getFloat
+ * @param key
+ * @return float value
+ */
+float Config::getFloat(QString key)
+{
+    return getString(key).toFloat();
+}
+
+/**
+ * @brief Config::getDouble
+ * @param key
+ * @return double value
+ */
+double Config::getDouble(QString key)
+{
+    return getString(key).toDouble();
+}
+
+/**
+ * @brief Config::getBool
+ * @param key
+ * @return boolean value
+ */
+bool Config::getBool(QString key)
+{
+    return getString(key) == "true";
 }

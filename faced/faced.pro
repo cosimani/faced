@@ -11,14 +11,18 @@ SOURCES += \
     config/config.cpp \
     app/widgets/widgets.cpp \
     app/app.cpp \
-    camera/camera.cpp
+    camera/camera.cpp \
+    haar/haar.cpp \
+    features/features.cpp
 
 HEADERS += \
     logger/logger.h \
     config/config.h \
     app/widgets/widgets.h \
     app/app.h \
-    camera/camera.h
+    camera/camera.h \
+    haar/haar.h \
+    features/features.h
 
 DISTFILES += \
     ../project.config

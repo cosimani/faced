@@ -71,26 +71,31 @@ void Haar::setTimer(QTimer *value)
  */
 void Haar::process()
 {
-    vector< Rect > detectedObjects;
-    detectedObjects.clear();
-
     if(this->getClassifier()->empty())
     {
         LOG_ERR("Classifier is empty");
         return;
     }
 
-    if(Camera::getInstance()->getCurrentFrame()->empty())
+    Mat *currentFrame = Camera::getInstance()->getCurrentFrame();
+
+    if(currentFrame->empty())
     {
         LOG_ERR("Current camera frame is empty");
         return;
     }
 
-    classifier->detectMultiScale( *Camera::getInstance()->getCurrentFrame(), detectedObjects,
+    vector< Rect > detectedObjects;
+    detectedObjects.clear();
+    classifier->detectMultiScale( *currentFrame, detectedObjects,
                                   1.1, 2, 0 | CASCADE_SCALE_IMAGE, Size( 150, 150 ) );
-
     if(detectedObjects.size() == 0)
     {
         return;
     }
+
+    float x = (detectedObjects[0].x + detectedObjects[0].width / (float)2) / (float)currentFrame->cols;
+    float y = (detectedObjects[0].y + detectedObjects[0].height / (float)2) / (float)currentFrame->rows;
+
+    emit detected( QPointF(x, y) );
 }

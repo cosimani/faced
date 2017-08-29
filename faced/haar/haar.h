@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QPointF>
 
 #include <opencv2/opencv.hpp>
 
@@ -42,6 +43,10 @@ public:
 private slots:
 
     void process();
+
+signals:
+
+    void detected(QPointF pos);
 };
 
 #endif // HAAR_H

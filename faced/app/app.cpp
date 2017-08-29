@@ -51,7 +51,8 @@ App::~App()
  * @brief App::run
  * Run the application with its intrinsic logic
  */
+#include "haar/haar.h"
 void App::run()
 {
-
+Haar * h = new Haar();
 }

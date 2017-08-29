@@ -1,8 +1,6 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#define CAMERA "CAMERA"
-
 #include <QObject>
 #include <QTimer>
 #include <QPoint>
@@ -11,6 +9,7 @@
 
 #include "logger/logger.h"
 #include "config/config.h"
+#include "app/keys.h"
 
 using namespace cv;
 using namespace std;

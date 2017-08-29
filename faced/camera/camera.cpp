@@ -24,7 +24,7 @@ void Camera::init()
     this->setCurrentFrame( new Mat() );
 
     this->connect( this->getFrameUpdater(), SIGNAL( timeout() ), this, SLOT( updateCurrentFrame() ) );
-    this->getFrameUpdater()->setInterval( 20 );
+    this->getFrameUpdater()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
     this->getFrameUpdater()->start();
 
     LOG_INF("Camera successfully initialized");

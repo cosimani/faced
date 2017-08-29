@@ -5,7 +5,7 @@
 
 /**
  * @brief The Features class
- * This class allows to extract features and send coordinates
+ * This class allows to extract features and send events
  */
 class Features : public QObject
 {

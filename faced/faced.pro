@@ -22,7 +22,8 @@ HEADERS += \
     app/app.h \
     camera/camera.h \
     haar/haar.h \
-    features/features.h
+    features/features.h \
+    app/keys.h
 
 DISTFILES += \
     ../project.config

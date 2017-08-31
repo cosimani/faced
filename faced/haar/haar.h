@@ -40,6 +40,9 @@ public:
     QTimer *getTimer() const;
     void setTimer(QTimer *value);
 
+    void startTracking();
+    void stopTracking();
+
 private slots:
 
     void process();

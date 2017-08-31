@@ -24,12 +24,24 @@ private:
 
     QTimer *timer;
 
+    bool needCalibrate;
+    QRect roi;
+
 public:
 
     explicit Features(QObject *parent = NULL);
 
     QTimer *getTimer() const;
     void setTimer(QTimer *value);
+
+    bool getNeedCalibrate() const;
+    void setNeedCalibrate(bool value);
+
+    QRect getRoi() const;
+    void setRoi(const QRect &value);
+
+    void startTracking();
+    void stopTracking();
 
 private slots:
 

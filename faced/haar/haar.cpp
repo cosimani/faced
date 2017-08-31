@@ -26,7 +26,6 @@ void Haar::init()
 
     this->connect( this->getTimer(), SIGNAL( timeout() ), this, SLOT( process() ) );
     this->getTimer()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
-    this->getTimer()->start();
 }
 
 /**
@@ -63,6 +62,24 @@ QTimer *Haar::getTimer() const
 void Haar::setTimer(QTimer *value)
 {
     timer = value;
+}
+
+/**
+ * @brief Haar::startTracking
+ * Starts events tracking
+ */
+void Haar::startTracking()
+{
+    this->getTimer()->start();
+}
+
+/**
+ * @brief Haar::stopTracking
+ * Stops events tracking
+ */
+void Haar::stopTracking()
+{
+    this->getTimer()->stop();
 }
 
 /**

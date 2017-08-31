@@ -85,15 +85,17 @@ void Haar::stopTracking()
 }
 
 /**
- * @brief Haar::process
- * Process camera frame and emit detected events
+ * @brief Haar::getFaceRoi
+ * @return the face roi
  */
-void Haar::process()
+QRect Haar::getFaceRoi()
 {
+    QRect roi = QRect(0, 0, 0, 0);
+
     if(this->getClassifier()->empty())
     {
         LOG_ERR("Classifier is empty");
-        return;
+        return roi;
     }
 
     Mat *currentFrame = Camera::getInstance()->getCurrentFrame();
@@ -101,7 +103,7 @@ void Haar::process()
     if(currentFrame->empty())
     {
         LOG_ERR("Current camera frame is empty");
-        return;
+        return roi;
     }
 
     vector< Rect > detectedObjects;
@@ -110,11 +112,47 @@ void Haar::process()
                                   1.1, 2, 0 | CASCADE_SCALE_IMAGE, Size( 150, 150 ) );
     if(detectedObjects.size() == 0)
     {
+        return roi;
+    }
+
+    roi.setX(detectedObjects[0].x);
+    roi.setY(detectedObjects[0].y);
+    roi.setWidth(detectedObjects[0].width);
+    roi.setHeight(detectedObjects[0].height);
+
+    return roi;
+}
+
+/**
+ * @brief Haar::getNoseRoi
+ * @return the nose roi
+ */
+QRect Haar::getNoseRoi()
+{
+    QRect roi = this->getFaceRoi();
+
+    roi.setX(roi.x() + roi.width() / ( double )3);
+    roi.setY(roi.y() + roi.height() / ( double )2);
+    roi.setWidth(roi.width() / ( double )3);
+    roi.setHeight(roi.height() / ( double )3);
+
+    return roi;
+}
+
+/**
+ * @brief Haar::process
+ * Process camera frame and emit detected events
+ */
+void Haar::process()
+{
+    QRect faceRoi = this->getFaceRoi();
+    if(faceRoi.isEmpty())
+    {
         return;
     }
 
-    float x = (detectedObjects[0].x + detectedObjects[0].width / (float)2) / (float)currentFrame->cols;
-    float y = (detectedObjects[0].y + detectedObjects[0].height / (float)2) / (float)currentFrame->rows;
+    float x = faceRoi.x() + faceRoi.width() / (float)2;
+    float y = faceRoi.y() + faceRoi.height() / (float)2;
 
     emit detected( QPointF(x, y) );
 }

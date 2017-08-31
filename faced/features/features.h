@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QPointF>
+#include <QRect>
 
 #include "config/config.h"
 #include "logger/logger.h"

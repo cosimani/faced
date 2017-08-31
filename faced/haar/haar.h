@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QPointF>
+#include <QRect>
 
 #include <opencv2/opencv.hpp>
 
@@ -42,6 +43,9 @@ public:
 
     void startTracking();
     void stopTracking();
+
+    QRect getFaceRoi();
+    QRect getNoseRoi();
 
 private slots:
 

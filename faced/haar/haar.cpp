@@ -67,7 +67,7 @@ void Haar::setTimer(QTimer *value)
 
 /**
  * @brief Haar::process
- * Process camera frame and emit events detected
+ * Process camera frame and emit detected events
  */
 void Haar::process()
 {

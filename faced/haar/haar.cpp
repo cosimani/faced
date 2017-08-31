@@ -26,6 +26,8 @@ void Haar::init()
 
     this->connect( this->getTimer(), SIGNAL( timeout() ), this, SLOT( process() ) );
     this->getTimer()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
+
+    LOG_INF("Haar detector successfully initialized");
 }
 
 /**

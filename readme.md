@@ -4,10 +4,10 @@ Faced es un proyecto que combina <b>Haar Features-Based Cascade Classifiers</b> 
 
 Se utilizaron las siguientes herramientas:
 
-*[C++](https://es.wikipedia.org/wiki/C%2B%2B)
-*[Qt Creator](https://www.qt.io/ide/)
-*[Open CV](http://opencv.org/)
-*[Github](https://github.com/)
+* [C++](https://es.wikipedia.org/wiki/C%2B%2B)
+* [Qt Creator](https://www.qt.io/ide/)
+* [Open CV](http://opencv.org/)
+* [Github](https://github.com/)
 
 ## Estructura
 

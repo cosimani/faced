@@ -11,6 +11,8 @@ Se utilizaron las siguientes herramientas:
 
 ## Estructura
 
+![Estructura](https://k60.kn3.net/E/2/F/0/8/E/EEF.png)
+
 El proyecto está compuesto por varios módulos:
 
 * <b>App</b> separa la lógica de la aplicación de las funcionalidades genéricas.

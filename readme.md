@@ -13,18 +13,18 @@ Se utilizaron las siguientes herramientas:
 
 El proyecto está compuesto por varios módulos:
 
-* <b>App</b>: En este módulo se separa la lógica de la aplicación de las funcionalidades genéricas.
-* <b>Camera</b>: Para el tracking de los frames de la cámara web.
-* <b>Config</b>: Aplica las configuraciones específicas del usuario a la instancia en ejecución.
-* <b>Features</b>: Procesamiento para Smoothed Features Extraction.
-* <b>Haar</b>: Procesamiento de Haar Features-Based Cascade Classifiers.
-* <b>Logger</b>: Para el manejo de registros.
+* <b>App</b> separa la lógica de la aplicación de las funcionalidades genéricas.
+* <b>Camera</b> permite el tracking de los frames de la cámara web.
+* <b>Config</b> aplica las configuraciones específicas del usuario a la instancia en ejecución.
+* <b>Features</b> implementa el procesamiento de Smoothed Features Extraction.
+* <b>Haar</b> implementa el procesamiento de Haar Features-Based Cascade Classifiers.
+* <b>Logger</b> para el manejo de registros.
 
 También existen folders y archivos dedicados:
 
-* <b>Classifiers</b>: Directorio donde se guardan los clasificadores a utilizar por el módulo Haar.
-* <b>Example</b>: Directorio para navegación en la demostración de ejemplo.
-* <b>Project.config</b>: Archivo de configuración aplicable por el módulo Config.
+* <b>Classifiers</b> es un directorio donde se guardan los clasificadores a utilizar por el módulo Haar.
+* <b>Example</b> es un directorio para navegación en la demostración de ejemplo.
+* <b>Project.config</b> es el archivo de configuración aplicable por el módulo Config.
 
 ## Fundamentación teórica
 

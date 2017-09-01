@@ -26,7 +26,7 @@ void Config::init()
     QFile inputFile(CONFIG_FILE);
     if(inputFile.open(QIODevice::ReadOnly) == false)
     {
-        LOG_ERR("Config file not exists");
+        LOG_ERR("Config: file not exists");
         return;
     }
     QTextStream in(&inputFile);
@@ -54,11 +54,11 @@ void Config::init()
             }
         }
         strings->append(kv);
-        LOG_INF("Key" << kv.at(0) << "was setted");
+        LOG_INF("Config: key" << kv.at(0) << "was setted");
     }
     inputFile.close();
 
-    LOG_INF("Config successfully initialized");
+    LOG_INF("Config: successfully initialized");
 }
 
 /**

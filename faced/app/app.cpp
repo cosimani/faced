@@ -19,7 +19,7 @@ App::App(QObject *parent):
  */
 void App::init()
 {
-    LOG_INF("App successfully initialized");
+    LOG_INF("App: successfully initialized");
 }
 
 /**

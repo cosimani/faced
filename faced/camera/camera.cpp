@@ -27,7 +27,7 @@ void Camera::init()
     this->getFrameUpdater()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
     this->getFrameUpdater()->start();
 
-    LOG_INF("Camera successfully initialized");
+    LOG_INF("Camera: successfully initialized");
 }
 
 /**

@@ -47,6 +47,9 @@ public:
     QTimer *getFrameUpdater() const;
     void setFrameUpdater(QTimer *value);
 
+    bool getFirstFrame() const;
+    void setFirstFrame(bool value);
+
     int getFrameCapturerBrightness();
     int getFrameCapturerContrast();
     int getFrameCapturerSaturation();

@@ -12,6 +12,16 @@ Haar::Haar(QObject *parent) :
 }
 
 /**
+ * @brief Haar::~Haar
+ * Destructor
+ */
+Haar::~Haar()
+{
+    delete this->getClassifier();
+    delete this->getTimer();
+}
+
+/**
  * @brief Haar::init
  * Auxiliar method
  */
@@ -20,14 +30,14 @@ void Haar::init()
     this->setClassifier( new CascadeClassifier(Config::getInstance()->getStdString(CLASSIFIER) ) );
     if(this->getClassifier()->empty())
     {
-        LOG_ERR("Cannot load classifier" << Config::getInstance()->getString(CLASSIFIER));
+        LOG_ERR("Haar detector: cannot load classifier" << Config::getInstance()->getString(CLASSIFIER));
     }
     this->setTimer( new QTimer(this) );
 
     this->connect( this->getTimer(), SIGNAL( timeout() ), this, SLOT( process() ) );
     this->getTimer()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
 
-    LOG_INF("Haar detector successfully initialized");
+    LOG_INF("Haar detector: successfully initialized");
 }
 
 /**
@@ -94,7 +104,7 @@ QRect Haar::getFaceRoi()
 
     if(this->getClassifier()->empty())
     {
-        LOG_ERR("Classifier is empty");
+        LOG_ERR("Haar detector: classifier is empty");
         return roi;
     }
 
@@ -102,7 +112,7 @@ QRect Haar::getFaceRoi()
 
     if(currentFrame->empty())
     {
-        LOG_ERR("Current camera frame is empty");
+        LOG_WAR("Haar detector: current camera frame is empty");
         return roi;
     }
 
@@ -124,10 +134,10 @@ QRect Haar::getFaceRoi()
 }
 
 /**
- * @brief Haar::getNoseRoi
- * @return the nose roi
+ * @brief Haar::getNoiseRoi
+ * @return the noise roi
  */
-QRect Haar::getNoseRoi()
+QRect Haar::getNoiseRect()
 {
     QRect roi = this->getFaceRoi();
 
@@ -154,5 +164,5 @@ void Haar::process()
     float x = faceRoi.x() + faceRoi.width() / (float)2;
     float y = faceRoi.y() + faceRoi.height() / (float)2;
 
-    emit detected( QPointF(x, y) );
+    emit detected( QPoint(x, y) );
 }

@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
-#include <QPointF>
+#include <QPoint>
 #include <QRect>
 
 #include <opencv2/opencv.hpp>
@@ -34,6 +34,7 @@ private:
 public:
 
     explicit Haar(QObject *parent = NULL);
+    ~Haar();
 
     CascadeClassifier *getClassifier() const;
     void setClassifier(CascadeClassifier *value);
@@ -45,7 +46,7 @@ public:
     void stopTracking();
 
     QRect getFaceRoi();
-    QRect getNoseRoi();
+    QRect getNoiseRect();
 
 private slots:
 
@@ -53,7 +54,7 @@ private slots:
 
 signals:
 
-    void detected(QPointF pos);
+    void detected(QPoint pos);
 };
 
 #endif // HAAR_H

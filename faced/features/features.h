@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
-#include <QPointF>
+#include <QPoint>
 #include <QRect>
 
 #include "config/config.h"
@@ -22,15 +22,34 @@ class Features : public QObject
 private:
 
     void init();
+    void calculateFlowInLastFrames();
+    void pointsFilteringAccordingRoi();
+    QPoint essentialPointsProcessing();
 
     QTimer *timer;
 
     bool needCalibrate;
     QRect roi;
 
+    bool drawProcessing;
+    Mat *grayImage;
+    Mat *previousGrayImage;
+
+    vector< Point2f > points[2];
+    int maxCount;
+    Size subWinPixSize;
+    Size winSize;
+    TermCriteria termCriteria;
+
+    bool initialFrames;
+    int initialFramesCounter;
+    bool firstCentroid;
+    Point offset;
+
 public:
 
     explicit Features(QObject *parent = NULL);
+    ~Features();
 
     QTimer *getTimer() const;
     void setTimer(QTimer *value);
@@ -41,8 +60,39 @@ public:
     QRect getRoi() const;
     void setRoi(const QRect &value);
 
+    Mat *getGrayImage() const;
+    void setGrayImage( Mat *value );
+
+    Mat *getPreviousGrayImage() const;
+    void setPreviousGrayImage( Mat *value );
+
+    int getMaxCount() const;
+    void setMaxCount( int value );
+
+    Size getSubWinPixSize() const;
+    void setSubWinPixSize( const Size &value );
+
+    Size getWinSize() const;
+    void setWinSize( const Size &value );
+
+    TermCriteria getTermCriteria() const;
+    void setTermCriteria( const TermCriteria &value );
+
+    bool getInitialFrames() const;
+    void setInitialFrames( bool value );
+
+    int getInitialFramesCounter() const;
+    void setInitialFramesCounter( int value );
+
+    bool getFirstCentroid() const;
+    void setFirstCentroid( bool value );
+
+    Point getOffset() const;
+    void setOffset( const Point &value );
+
     void startTracking();
     void stopTracking();
+    void calibrate(QRect roi);
 
 private slots:
 
@@ -50,7 +100,7 @@ private slots:
 
 signals:
 
-    void detected(QPointF pos);
+    void detected(QPoint pos);
 };
 
 #endif // FEATURES_H

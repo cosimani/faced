@@ -19,7 +19,7 @@ Widgets::Widgets(QObject *parent):
  */
 void Widgets::init()
 {
-    LOG_INF("Widgets successfully initialized");
+    LOG_INF("Widgets: successfully initialized");
 }
 
 /**

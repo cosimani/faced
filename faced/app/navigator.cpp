@@ -57,13 +57,12 @@ void Navigator::loadFolder(QString folder)
 
     QDirIterator it(folder, QStringList() << "*.jpg", QDir::Files, QDirIterator::Subdirectories);
     int i = 0;
-    int offset = 10;
     while (it.hasNext()) {
         Image *image = new Image(this);
 
         image->load(it.next());
 
-        int x = (image->width() * i) + (offset * (i + 1));
+        int x = 0;
         int y = 0;
         int w = image->width();
         int h = image->height();
@@ -84,7 +83,7 @@ void Navigator::alignImages()
 {
     for(int i = 0; i < this->getImages()->length(); i++)
     {
-        int x = this->getImages()->at(i)->x();
+        int x = ;
         int y = this->height() / (float)2 - this->getImages()->at(i)->height() / (float)2;
         int w = this->getImages()->at(i)->width();
         int h = this->getImages()->at(i)->height();

@@ -4,6 +4,7 @@
 #include <QObject>
 
 #include "logger/logger.h"
+#include "app/navigator.h"
 
 /**
  * @brief The App class
@@ -20,12 +21,17 @@ private:
     explicit App(QObject *parent = NULL);
     void init();
 
+    Navigator *navigator;
+
 public:
 
     static App *getInstance();
     ~App();
 
     void run();
+
+    Navigator *getNavigator() const;
+    void setNavigator(Navigator *value);
 };
 
 #endif // WIDGETS_H

@@ -4,5 +4,6 @@
 #define CAMERA "CAMERA"
 #define CLASSIFIER "CLASSIFIER"
 #define TIMEOUT "TIMEOUT"
+#define FOLDER "FOLDER"
 
 #endif // KEYS_H

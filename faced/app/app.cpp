@@ -8,7 +8,8 @@ App* App::instance = NULL;
  * Constructor
  */
 App::App(QObject *parent):
-    QObject(parent)
+    QObject(parent),
+    navigator(new Navigator(NULL))
 {
     init();
 }
@@ -41,6 +42,7 @@ App *App::getInstance()
  */
 App::~App()
 {
+    delete navigator;
     if(instance != NULL)
     {
         delete instance;
@@ -53,4 +55,23 @@ App::~App()
  */
 void App::run()
 {
+    navigator->showMaximized();
+}
+
+/**
+ * @brief App::getNavigator
+ * @return the navigator object
+ */
+Navigator *App::getNavigator() const
+{
+    return navigator;
+}
+
+/**
+ * @brief App::setNavigator
+ * @param value
+ */
+void App::setNavigator(Navigator *value)
+{
+    navigator = value;
 }

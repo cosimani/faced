@@ -83,7 +83,7 @@ void Navigator::alignImages()
 {
     for(int i = 0; i < this->getImages()->length(); i++)
     {
-        int x = ;
+        int x = 0;
         int y = this->height() / (float)2 - this->getImages()->at(i)->height() / (float)2;
         int w = this->getImages()->at(i)->width();
         int h = this->getImages()->at(i)->height();

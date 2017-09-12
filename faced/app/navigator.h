@@ -43,6 +43,8 @@ public:
     QVector<Image *> *getImages() const;
     void setImages(QVector<Image *> *value);
 
+    void move(bool right, float level);
+
 protected:
 
     void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;

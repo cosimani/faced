@@ -147,6 +147,22 @@ void Navigator::setImages(QVector<Image *> *value)
 }
 
 /**
+ * @brief Navigator::move
+ * @param right
+ * @param level
+ * Moves the scene with a level between 0 and 1
+ */
+void Navigator::move(bool right, float level)
+{
+    for(int i = 0; i < this->getImages()->length(); i++)
+    {
+        Image *image = this->getImages()->at(i);
+
+        image->setGeometry(image->x() + (right ? +1 : -1) * level, image->y(), image->width(), image->height());
+    }
+}
+
+/**
  * @brief Navigator::resizeEvent
  * @param event
  * Redefinition of resizeEvent

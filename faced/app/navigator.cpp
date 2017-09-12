@@ -77,17 +77,23 @@ void Navigator::loadFolder(QString folder)
 
 /**
  * @brief Navigator::alignImages
- * Method for center images
+ * Method for align images
  */
 void Navigator::alignImages()
 {
+    int currentX = 0;
+    int margin = 20;
     for(int i = 0; i < this->getImages()->length(); i++)
     {
-        int x = 0;
-        int y = this->height() / (float)2 - this->getImages()->at(i)->height() / (float)2;
-        int w = this->getImages()->at(i)->width();
-        int h = this->getImages()->at(i)->height();
-        this->getImages()->at(i)->setGeometry(x, y, w, h);
+        Image *image = this->getImages()->at(i);
+
+        image->setGeometry(
+            currentX,
+            this->height() / (float)2 - image->height() / (float)2,
+            image->width(),
+            image->height());
+
+        currentX += image->width() + margin;
     }
 }
 

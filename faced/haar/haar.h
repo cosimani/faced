@@ -46,7 +46,6 @@ public:
     void stopTracking();
 
     QRect getFaceRoi();
-    QRect getNoiseRect();
 
 private slots:
 
@@ -54,7 +53,9 @@ private slots:
 
 signals:
 
-    void detected(QPoint pos);
+    void face(QRect f);
+    void nose(QRect n);
+    void point(QPoint p);
 };
 
 #endif // HAAR_H

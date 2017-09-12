@@ -134,35 +134,35 @@ QRect Haar::getFaceRoi()
 }
 
 /**
- * @brief Haar::getNoiseRoi
- * @return the noise roi
- */
-QRect Haar::getNoiseRect()
-{
-    QRect roi = this->getFaceRoi();
-
-    roi.setX(roi.x() + roi.width() / ( double )3);
-    roi.setY(roi.y() + roi.height() / ( double )2);
-    roi.setWidth(roi.width() / ( double )3);
-    roi.setHeight(roi.height() / ( double )3);
-
-    return roi;
-}
-
-/**
  * @brief Haar::process
  * Process camera frame and emit detected events
  */
 void Haar::process()
 {
-    QRect faceRoi = this->getFaceRoi();
-    if(faceRoi.isEmpty())
+    QRect f = this->getFaceRoi();
+    if(f.isEmpty())
     {
         return;
     }
+    emit face(f);
 
-    float x = faceRoi.x() + faceRoi.width() / (float)2;
-    float y = faceRoi.y() + faceRoi.height() / (float)2;
+    QRect n;
+    n.setX(f.x() + f.width() / ( double )3);
+    n.setY(f.y() + f.height() / ( double )2);
+    n.setWidth(f.width() / ( double )3);
+    n.setHeight(f.height() / ( double )3);
+    if(n.isEmpty())
+    {
+        return;
+    }
+    emit nose(n);
 
-    emit detected( QPoint(x, y) );
+    QPoint p;
+    p.setX(n.x() + n.width() / (float)2);
+    p.setY(n.y() + n.height() / (float)2);
+    if(p.isNull())
+    {
+        return;
+    }
+    emit point(p);
 }

@@ -5,6 +5,9 @@
 
 #include "logger/logger.h"
 #include "app/navigator.h"
+#include "camera/camera.h"
+#include "haar/haar.h"
+#include "features/features.h"
 
 /**
  * @brief The App class
@@ -22,6 +25,11 @@ private:
     void init();
 
     Navigator *navigator;
+    Haar *haar;
+    Features *features;
+
+    bool featuresCalibrated;
+    QRect firstHaarRect;
 
 public:
 
@@ -32,6 +40,23 @@ public:
 
     Navigator *getNavigator() const;
     void setNavigator(Navigator *value);
+
+    Haar *getHaar() const;
+    void setHaar(Haar *value);
+
+    Features *getFeatures() const;
+    void setFeatures(Features *value);
+
+    bool getFeaturesCalibrated() const;
+    void setFeaturesCalibrated(bool value);
+
+    QRect getFirstHaarRect() const;
+    void setFirstHaarRect(const QRect &value);
+
+private slots:
+
+    void haarNoseDetected(QRect n);
+    void featuresDetected(QPoint p);
 };
 
 #endif // WIDGETS_H

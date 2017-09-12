@@ -43,7 +43,7 @@ public:
     QVector<Image *> *getImages() const;
     void setImages(QVector<Image *> *value);
 
-    void move(bool right, float level);
+    void move(float level);
 
 protected:
 

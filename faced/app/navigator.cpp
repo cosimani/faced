@@ -82,7 +82,6 @@ void Navigator::loadFolder(QString folder)
 void Navigator::alignImages()
 {
     int currentX = 0;
-    int margin = 20;
     for(int i = 0; i < this->getImages()->length(); i++)
     {
         Image *image = this->getImages()->at(i);
@@ -93,7 +92,7 @@ void Navigator::alignImages()
             image->width(),
             image->height());
 
-        currentX += image->width() + margin;
+        currentX += image->width();
     }
 }
 
@@ -150,15 +149,15 @@ void Navigator::setImages(QVector<Image *> *value)
  * @brief Navigator::move
  * @param right
  * @param level
- * Moves the scene with a level between 0 and 1
+ * Moves the scene with a level between -1 and 1
  */
-void Navigator::move(bool right, float level)
+void Navigator::move(float level)
 {
     for(int i = 0; i < this->getImages()->length(); i++)
     {
         Image *image = this->getImages()->at(i);
 
-        image->setGeometry(image->x() + (right ? +1 : -1) * level, image->y(), image->width(), image->height());
+        image->setGeometry(image->x() + level, image->y(), image->width(), image->height());
     }
 }
 

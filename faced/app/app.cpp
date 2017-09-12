@@ -147,7 +147,7 @@ void App::haarNoseDetected(QRect n)
 
     QPoint d(p.x() - c.x(), p.y() - c.y());
 
-    this->getNavigator()->move(d.x());
+    //this->getNavigator()->move(d.x());
 }
 
 /**
@@ -162,7 +162,7 @@ void App::featuresDetected(QPoint p)
 
     QPoint d(p.x() - c.x(), p.y() - c.y());
 
-    //this->getNavigator()->move(d.x());
+    this->getNavigator()->move(d.x());
 }
 
 /**

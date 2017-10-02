@@ -28,6 +28,17 @@ connect(detector, SIGNAL(point(QPoint)), SLOT(mySlot(QPoint)))
 
 Esta técnica nos brinda un punto de reconocimiento rápido pero bastante inestable. Tiene un gran rendimiento si es aplicada en interfaces de grandes segmentos.
 
+```c++
+Haar *detector = new Haar();
+detector.startTracking();
+```
+
 ### Smoothed Features Extraction
 
 Esta técnica tiene un costo de procesamiento bastante más alto, pero brinda mayor precisión en el punto de reconocimiento. Es aplicable a control de sistemas que requieren precisión.
+
+```c++
+Features *detector = new Features();
+detector.calibrate(noseRect);
+detector.startTracking();
+```

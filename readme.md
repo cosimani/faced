@@ -35,7 +35,7 @@ detector.startTracking();
 
 ### Smoothed Features Extraction
 
-Esta técnica tiene un costo de procesamiento bastante más alto, pero brinda mayor precisión en el punto de reconocimiento. Es aplicable a control de sistemas que requieren precisión.
+Esta técnica tiene un costo de procesamiento bastante más alto, pero brinda mayor precisión en el punto de reconocimiento. Es aplicable a control de sistemas que requieren precisión. Esta técnica requiere un paso de calibración donde se indica al detector sobre qué segmente aplicar el tracking. Debería parametrizarse un rect que contenga por ej. la nariz. Este rect puede ser calculado escuchando la signal <i>nose</i> de <i>Haar</i>.
 
 ```c++
 Features *detector = new Features();

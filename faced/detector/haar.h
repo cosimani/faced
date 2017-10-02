@@ -52,6 +52,8 @@ private slots:
 
 signals:
 
+    void face(QRect f);
+    void nose(QRect n);
     void point(QPoint);
 };
 

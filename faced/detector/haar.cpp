@@ -144,6 +144,7 @@ void Haar::process()
     {
         return;
     }
+    emit face(f);
 
     QRect n;
     n.setX(f.x() + f.width() / ( double )3);
@@ -154,6 +155,7 @@ void Haar::process()
     {
         return;
     }
+    emit nose(n);
 
     QPoint p;
     p.setX(n.x() + n.width() / (float)2);

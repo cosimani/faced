@@ -26,7 +26,7 @@ detector->startTracking();
 2. Procesar la señal point
 
 ```c++
-connect(haar, SIGNAL(point(QPoint)), SLOT(mySlot(QPoint)))
+connect(detector, SIGNAL(point(QPoint)), SLOT(mySlot(QPoint)))
 ```
 
 

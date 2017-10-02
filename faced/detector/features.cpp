@@ -1,4 +1,4 @@
-#include "features/features.h"
+#include "features.h"
 
 /**
  * @brief Features::Features
@@ -45,7 +45,7 @@ void Features::init()
     this->setFirstCentroid( true );
 
     this->connect( this->getTimer(), SIGNAL( timeout() ), this, SLOT( process() ) );
-    this->getTimer()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
+    this->getTimer()->setInterval( Config::getInstance()->getInt("TIMEOUT") );
 
     LOG_INF("Features extractor: successfully initialized");
 }
@@ -478,7 +478,7 @@ void Features::process()
         }
         else
         {
-            emit detected( final );
+            emit point( final );
         }
     }
 

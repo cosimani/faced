@@ -1,4 +1,4 @@
-#include "haar/haar.h"
+#include "haar.h"
 
 /**
  * @brief Haar::Haar
@@ -27,15 +27,15 @@ Haar::~Haar()
  */
 void Haar::init()
 {
-    this->setClassifier( new CascadeClassifier(Config::getInstance()->getStdString(CLASSIFIER) ) );
+    this->setClassifier( new CascadeClassifier(Config::getInstance()->getStdString("CLASSIFIER") ) );
     if(this->getClassifier()->empty())
     {
-        LOG_ERR("Haar detector: cannot load classifier" << Config::getInstance()->getString(CLASSIFIER));
+        LOG_ERR("Haar detector: cannot load classifier" << Config::getInstance()->getString("CLASSIFIER"));
     }
     this->setTimer( new QTimer(this) );
 
     this->connect( this->getTimer(), SIGNAL( timeout() ), this, SLOT( process() ) );
-    this->getTimer()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
+    this->getTimer()->setInterval( Config::getInstance()->getInt("TIMEOUT") );
 
     LOG_INF("Haar detector: successfully initialized");
 }
@@ -144,7 +144,6 @@ void Haar::process()
     {
         return;
     }
-    emit face(f);
 
     QRect n;
     n.setX(f.x() + f.width() / ( double )3);
@@ -155,7 +154,6 @@ void Haar::process()
     {
         return;
     }
-    emit nose(n);
 
     QPoint p;
     p.setX(n.x() + n.width() / (float)2);

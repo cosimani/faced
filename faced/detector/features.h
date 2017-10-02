@@ -6,10 +6,9 @@
 #include <QPoint>
 #include <QRect>
 
-#include "config/config.h"
-#include "logger/logger.h"
-#include "app/keys.h"
-#include "camera/camera.h"
+#include "config.h"
+#include "logger.h"
+#include "camera.h"
 
 /**
  * @brief The Features class
@@ -100,7 +99,7 @@ private slots:
 
 signals:
 
-    void detected(QPoint pos);
+    void point(QPoint);
 };
 
 #endif // FEATURES_H

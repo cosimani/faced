@@ -1,4 +1,4 @@
-#include "camera/camera.h"
+#include "camera.h"
 
 Camera* Camera::instance = NULL;
 
@@ -19,12 +19,12 @@ Camera::Camera(QObject *parent):
  */
 void Camera::init()
 {
-    this->setFrameCapturer( new VideoCapture( Config::getInstance()->getInt(CAMERA) ) );
+    this->setFrameCapturer( new VideoCapture( Config::getInstance()->getInt("CAMERA") ) );
     this->setFrameUpdater( new QTimer( this ) );
     this->setCurrentFrame( new Mat() );
 
     this->connect( this->getFrameUpdater(), SIGNAL( timeout() ), this, SLOT( updateCurrentFrame() ) );
-    this->getFrameUpdater()->setInterval( Config::getInstance()->getInt(TIMEOUT) );
+    this->getFrameUpdater()->setInterval( Config::getInstance()->getInt("TIMEOUT") );
     this->getFrameUpdater()->start();
 
     LOG_INF("Camera: successfully initialized");

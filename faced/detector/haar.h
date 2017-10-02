@@ -8,10 +8,9 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "config/config.h"
-#include "logger/logger.h"
-#include "app/keys.h"
-#include "camera/camera.h"
+#include "config.h"
+#include "logger.h"
+#include "camera.h"
 
 using namespace cv;
 using namespace std;
@@ -53,9 +52,7 @@ private slots:
 
 signals:
 
-    void face(QRect f);
-    void nose(QRect n);
-    void point(QPoint p);
+    void point(QPoint);
 };
 
 #endif // HAAR_H

@@ -1,18 +1,12 @@
 #include <QApplication>
 
-#include "app/app.h"
+#include "example.h"
 
-/**
- * @brief main
- * @param argc
- * @param argv
- * @return the exec code
- */
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    App::getInstance()->run();
+    Example example;
 
     return app.exec();
 }

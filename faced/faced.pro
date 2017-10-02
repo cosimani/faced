@@ -8,24 +8,15 @@ LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so"
 
 SOURCES += \
     main.cpp \
-    config/config.cpp \
-    app/app.cpp \
-    camera/camera.cpp \
-    haar/haar.cpp \
-    features/features.cpp \
-    app/navigator.cpp \
-    app/image.cpp
+    detector/camera.cpp \
+    detector/config.cpp \
+    detector/features.cpp \
+    detector/haar.cpp
 
 HEADERS += \
-    logger/logger.h \
-    config/config.h \
-    app/app.h \
-    camera/camera.h \
-    haar/haar.h \
-    features/features.h \
-    app/keys.h \
-    app/navigator.h \
-    app/image.h
-
-DISTFILES += \
-    ../project.config
+    detector/camera.h \
+    detector/config.h \
+    detector/features.h \
+    detector/haar.h \
+    example.h \
+    detector/logger.h

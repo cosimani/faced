@@ -7,9 +7,8 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "logger/logger.h"
-#include "config/config.h"
-#include "app/keys.h"
+#include "logger.h"
+#include "config.h"
 
 using namespace cv;
 using namespace std;

@@ -13,19 +13,19 @@ Se utilizaron las siguientes herramientas:
 
 1. Instanciar el tipo de detección deseado
 
-```
+```c++
 Haar *detector = new Haar();
 ```
 
 2. Iniciar tracking
 
-```
+```c++
 detector->startTracking();
 ```
 
 2. Procesar la señal point
 
-```
+```c++
 connect(haar, SIGNAL(point(QPoint)), SLOT(mySlot(QPoint)))
 ```
 
